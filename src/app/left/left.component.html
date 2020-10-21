@@ -1,1 +1,5 @@
-<div id='left'></div>
+<div id='left' (mouseover)="doExpand(true)" (mouseout)="doExpand(false)"
+    [@expandLeft]="isExpand()"        
+>
+
+</div>

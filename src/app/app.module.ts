@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LeftComponent } from './left/left.component';
 import { RightComponent } from './right/right.component';
 import { TopComponent } from './top/top.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TopComponent } from './top/top.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
