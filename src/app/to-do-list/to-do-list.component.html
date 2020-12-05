@@ -1,4 +1,21 @@
-<div>
-    
-
+<div id="tableBox">
+    <ul >
+        
+    </ul>
+    <table>
+        <thead>
+            <th>序号</th>
+            <th>紧急度</th>
+            <th>分类</th>
+            <th>内容</th>
+        </thead>
+        <tbody *ngFor="let d of toDoList, let i = index">
+            <app-to-do [index]="i" 
+            [content]="d.content"
+            [emergency_level]="d.emergency_level"
+            [category_type]='d.category_type'></app-to-do>
+        </tbody>
+    </table>
 </div>
+
+<app-to-do-result></app-to-do-result>

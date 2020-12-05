@@ -14,6 +14,9 @@ import { TestPlaceComponent } from './test-place/test-place.component'
 import { routing } from './app.routing';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { RememberWordsServiceService } from './remember-word/remember-words-service.service';
+import { ToDoComponent } from './to-do/to-do.component';
+import { ToDoResultComponent } from './to-do-result/to-do-result.component';
+import { MilestoneBarComponent } from './milestone-bar/milestone-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { RememberWordsServiceService } from './remember-word/remember-words-serv
     TopComponent,
     RememberWordComponent,
     TestPlaceComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    ToDoComponent,
+    ToDoResultComponent,
+    MilestoneBarComponent
   ],
   imports: [
     BrowserModule,

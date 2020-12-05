@@ -1,0 +1,29 @@
+<div id='floatBox'>
+    <div id='editBox'>
+        <form id='resultForm'>
+            <ul>
+                <li>
+                    <label>完成情况:</label>
+                    <select id='status'>
+                        <option value='success'>顺利完成</option>
+                        <option value='delayed'>延期</option>
+                    </select>
+                </li>
+                <li>
+                    <app-milestone-bar [total]="total" [step]="step"></app-milestone-bar>
+                </li>
+
+                <li>
+                    <label>备注:</label>
+                    <textarea id='comment'>
+
+                    </textarea>
+                </li>
+            </ul>
+
+            <input type="submit" value="确定">
+        </form>
+       
+    </div>
+</div>
+
