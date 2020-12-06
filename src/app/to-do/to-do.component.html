@@ -1,15 +1,28 @@
-<tr>
-    <td>
-        <span>{{index}}</span>
-    </td>
-    <td>
-        <span>{{emergency_level}}</span>
-    </td>
-    <td>
-        <span>{{content}}</span>
-    </td>
-    <td>
-        <span>{{category_type}}</span>
-    </td>
+<td class="index">
+    <span>{{index}}</span>
+</td>
+<td class="emergency_level">
+    <div class="emergency_level_circle" [style.background-color]="getEmergencyLevelColor()"></div>
+</td>
+<td class="category">
+    <span>{{getCategory()}}</span>
+</td>
+<td class="content">
+    <span>{{content}}</span>
+</td>
+<td class="complex_type">
+    <span>{{getComplexType()}}</span>
+</td>
+<td class="status">
+    <span>{{getStatus()}}</span>
+</td>
+<td class="create_date">
+    <span>{{create_date}}</span>
+</td>
+<td>
+    <button *ngIf='isStartBtnShow()' class="start_btn" (click)='start()'>开始</button>
+    <button *ngIf='isPauseBtnShow()' class="pause_btn" (click)='pause()'>{{pauseBtnText}}</button>
+    <button *ngIf='isFinishBtnShow()' class='finish_btn' (click)='finish()'>结束</button>
+</td>
+<app-to-do-result *ngIf='isResultBoxShow()'></app-to-do-result>
 
-</tr>

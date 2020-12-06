@@ -1,10 +1,13 @@
 #floatBox{
     width: 100%;
     height: 500px;
-    background-color:white;
+    background-color: blueviolet;
+
+    left:0px;
+    top:0px;
   
-    float: left;
-    position: absolute;
+    //float: left;
+    position: fixed;
     z-index: 9999;
 
     display: flex;
@@ -12,9 +15,17 @@
     justify-items: center;
 
     #editBox{
-       
+        margin-top: 100px;
+        width: 50%;
+        height: 300px;
+        border: 1px solid red;
+
         li{
             list-style: none;
+            float:left;
+            width: 100%;
+            background-color: aquamarine;
+            margin-top: 10px;
 
             select,input{
                 width: 200px;
@@ -24,10 +35,7 @@
         display: flex;
         justify-content:center;
 
-        margin-top: 100px;
-        width: 50%;
-        height: 300px;
-        border: 1px solid red;
+        
         
 
         form#resultForm{

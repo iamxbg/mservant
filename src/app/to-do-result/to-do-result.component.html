@@ -9,7 +9,8 @@
                         <option value='delayed'>延期</option>
                     </select>
                 </li>
-                <li>
+                <li *ngIf='isMilestoneBarShow()'>
+                    <label style="float:left">进度情况:</label>
                     <app-milestone-bar [total]="total" [step]="step"></app-milestone-bar>
                 </li>
 

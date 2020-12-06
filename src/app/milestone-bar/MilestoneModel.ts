@@ -17,8 +17,10 @@ export class MilestoneModel {
      * @param desc 描述
      * @param status 状态
      */
-    constructor(id:number,index:number,public desc:string,status:number=0){
+    constructor(id:number,public index:number,public desc:string,status:number=0){
     }
 
+
+    
 
 }

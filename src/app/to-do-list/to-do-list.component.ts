@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { ToDoComponent } from '../to-do/to-do.component'
+import { Category, ComplexType, EmergencyLevel } from './ToDoEnums';
 import { toDo } from './toDoModel';
 
 @Component({
@@ -14,8 +15,9 @@ export class ToDoListComponent implements OnInit {
     
 
   constructor() {
-    this.toDoList.push({"id":1,"content":"hello","category_type":0,"emergency_level":1})
-    this.toDoList.push({"id":22,"content":"world","category_type":2,"emergency_level":2})
+    this.toDoList.push(new toDo(1,"逃出生天",Category.Task,EmergencyLevel.Low))
+    this.toDoList.push(new toDo(2,"学习总结",Category.Task,EmergencyLevel.Normal,ComplexType.Steps))
+    this.toDoList.push(new toDo(3,"换高薪工作",Category.Job,EmergencyLevel.High,ComplexType.Block))
    }
 
   ngOnInit() {

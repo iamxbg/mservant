@@ -1,21 +1,30 @@
-<div id="tableBox">
-    <ul >
-        
-    </ul>
-    <table>
-        <thead>
-            <th>序号</th>
-            <th>紧急度</th>
-            <th>分类</th>
-            <th>内容</th>
+
+    <table id='to_do_list_table' >
+        <thead style="background-color: sienna;width: 100%;">
+            <tr>
+                <th >序号</th>
+                <th >紧急度</th>
+                <th >分类</th>
+                <th >内容</th>
+                <th >复杂度</th>
+                <th >状态</th>
+                <th >创建日期</th>
+                <th>操作区</th>
+            </tr>
         </thead>
-        <tbody *ngFor="let d of toDoList, let i = index">
-            <app-to-do [index]="i" 
-            [content]="d.content"
-            [emergency_level]="d.emergency_level"
-            [category_type]='d.category_type'></app-to-do>
+        <tbody>
+            <tr app-to-do *ngFor="let d of toDoList, let i = index"
+                [index]="i+1" 
+                [content]="d.content"
+                [emergency_level]="d.emergency_level"
+                [category_type]='d.category_type'
+                [complex_type]='d.complex_type'
+                [create_date]='d.create_date'
+                [status]='d.status'>
+            </tr>
         </tbody>
     </table>
-</div>
 
+<!--
 <app-to-do-result></app-to-do-result>
+-->

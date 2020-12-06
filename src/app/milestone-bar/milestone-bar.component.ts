@@ -10,6 +10,11 @@ export class MilestoneBarComponent implements OnInit {
 
   @Input()
   total:number;
+
+  /**
+   * current step
+   */
+  currentStep:number =0;
   
   milestones:MilestoneModel[]=[
     new MilestoneModel(0,0,"未开始"),
@@ -23,6 +28,11 @@ export class MilestoneBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  markStep(index:number){
+    alert("添加纪录登记")
+    this.currentStep = index;
   }
 
 }
