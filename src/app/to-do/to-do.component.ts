@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+
 import { Category, ComplexType, EmergencyLevel, TaskStatus } from '../to-do-list/ToDoEnums';
+import { toDo } from '../to-do-list/toDoModel';
+import { ToDoServiceService } from '../to-do-service.service';
 
 @Component({
   selector: '[app-to-do]',
@@ -8,42 +11,36 @@ import { Category, ComplexType, EmergencyLevel, TaskStatus } from '../to-do-list
 })
 export class ToDoComponent implements OnInit {
 
+  //@Output() setCurrentToDo:EventEmitter<null> = new EventEmitter<null>();
+
+  setCurrentToDo:EventEmitter<toDo> = new EventEmitter<toDo>();
+
   @Input()
   index:number;
 
   @Input()
-  content:string;
+  toDo:toDo;
 
-  @Input()
-  emergency_level:EmergencyLevel;
-
-  @Input()
-  category_type:Category;
-
-  @Input()
-  complex_type:ComplexType;
-
-  @Input()
-  status:TaskStatus;
-
-  @Input()
-  create_date: Date;
-
-  public pauseBtnText:string ="暂停";
+  //public pauseBtnText:string ="暂停";
   
 
-  constructor() { }
+  constructor(private toDoService:ToDoServiceService) {
+
+    this.setCurrentToDo.subscribe(td=>{
+      toDoService.pushToCurrents(td);
+    })
+   }
 
   ngOnInit() {
 
   }
 
   getEmergencyLevelColor(): string {
-    if(this.emergency_level==EmergencyLevel.Low)
+    if(this.toDo.emergency_level==EmergencyLevel.Low)
       return  'blue';
-    else if(this.emergency_level==EmergencyLevel.Normal)
+    else if(this.toDo.emergency_level==EmergencyLevel.Normal)
       return 'yellow';
-    else if(this.emergency_level == EmergencyLevel.High)
+    else if(this.toDo.emergency_level == EmergencyLevel.High)
       return 'red'
     else return 'black'
     /*
@@ -63,42 +60,42 @@ export class ToDoComponent implements OnInit {
 
 
   getCategory():string {
-    if(this.category_type == Category.Job){
+    if(this.toDo.category_type == Category.Job){
       return '工作';
-    }else if(this.category_type == Category.Learn){
+    }else if(this.toDo.category_type == Category.Learn){
       return '学习';
-    }else if(this.category_type == Category.Task){
+    }else if(this.toDo.category_type == Category.Task){
       return '任务';
     }
   }
 
   getComplexType():string {
-    if(this.complex_type == ComplexType.Block){
+    if(this.toDo.complex_type == ComplexType.Block){
       return '连续';
-    }else if(this.complex_type == ComplexType.Slip){
+    }else if(this.toDo.complex_type == ComplexType.Slip){
       return '简单';
-    }else if(this.complex_type == ComplexType.Steps){
+    }else if(this.toDo.complex_type == ComplexType.Steps){
       return '持久';
     }
   }
 
 
   getStatus():string {
-    if(this.status == TaskStatus.Hibernated){
+    if(this.toDo.status == TaskStatus.Hibernated){
       return "未开始";
-    }else if(this.status == TaskStatus.Active){
+    }else if(this.toDo.status == TaskStatus.Active){
       return '等待';
-    }else if(this.status == TaskStatus.Complete){
+    }else if(this.toDo.status == TaskStatus.Complete){
       return '完成';
-    }else if(this.status == TaskStatus.Fail){
+    }else if(this.toDo.status == TaskStatus.Fail){
       return '失败';
-    }else if(this.status == TaskStatus.Outdated){
+    }else if(this.toDo.status == TaskStatus.Outdated){
       return '过期';
-    }else if(this.status == TaskStatus.Processing){
+    }else if(this.toDo.status == TaskStatus.Processing){
       return '进行中';
-    }else if(this.status == TaskStatus.Terminated){
+    }else if(this.toDo.status == TaskStatus.Terminated){
       return '终止';
-    }else if(this.status == TaskStatus.Pause){
+    }else if(this.toDo.status == TaskStatus.Pause){
       return '暂停';
     }
 
@@ -108,7 +105,7 @@ export class ToDoComponent implements OnInit {
    * 是否显示开始按钮
    */
   isStartBtnShow():boolean {
-    if(this.status == TaskStatus.Active) return true;
+    if(this.toDo.status == TaskStatus.Active) return true;
     else return false;
   }
 
@@ -116,7 +113,7 @@ export class ToDoComponent implements OnInit {
    * 是否显示结束按钮
    */
   isFinishBtnShow():boolean {
-    if(this.status ==TaskStatus.Processing || this.status == TaskStatus.Pause)
+    if(this.toDo.status ==TaskStatus.Processing || this.toDo.status == TaskStatus.Pause)
     return true;
     else false;
   }
@@ -125,30 +122,49 @@ export class ToDoComponent implements OnInit {
    * 是否显示暂停/继续按钮
    */
   isPauseBtnShow():boolean {
-    if(this.status == TaskStatus.Processing || this.status == TaskStatus.Pause ){
+    if(this.toDo.status == TaskStatus.Processing || this.toDo.status == TaskStatus.Pause ){
       return true;
     }
     return false;
   }
 
+
+ 
+
   /**
    * 开始任务
    */
   start():void {
-    console.log('start')
-    this.status = TaskStatus.Processing;
+    console.log('start');
+    
+    
+
+    //this.setCurrentToDo.emit();
+    //this.toDoService.setCurrentEvent.emit(this.toDo);
+    
+    this.setCurrentToDo.emit(this.toDo);
+
+    console.log("emitted");
   }
 
   /**
    * 暂停任务
    */
   pause():void {
-    if(this.status == TaskStatus.Pause){
-      this.status = TaskStatus.Processing;
-      this.pauseBtnText = '暂停';
-    }else if(this.status == TaskStatus.Processing){
-      this.status = TaskStatus.Pause;
-      this.pauseBtnText = '继续';
+    if(this.toDo.status == TaskStatus.Pause){
+      
+      if(this.toDoService.getCurrent()!=null){
+        this.toDoService.getCurrent().status = TaskStatus.Pause;
+ 
+      }
+      this.toDo.status = TaskStatus.Processing;
+      this.toDoService.setCurrent(this.toDo);
+    }else if(this.toDo.status == TaskStatus.Processing){
+      if(this.toDoService.getCurrent()!=null){
+        this.toDoService.getCurrent().status = TaskStatus.Processing;
+      }
+      this.toDo.status = TaskStatus.Pause;    
+      this.toDoService.setCurrent(null);
     }
 
   }
@@ -157,12 +173,17 @@ export class ToDoComponent implements OnInit {
    * 结束任务
    */
   finish():void {
-    this.status = TaskStatus.Finish;
+    this.toDo.status = TaskStatus.Finish;
   }
 
   isResultBoxShow():boolean{
-    if(this.status==TaskStatus.Finish) return true;
+    if(this.toDo.status==TaskStatus.Finish) return true;
     return false;
+  }
+
+  getPauseBtnText():string {
+    if(this.toDo.status===TaskStatus.Pause) return "继续";
+    else if(this.toDo.status === TaskStatus.Processing) return "暂停";
   }
 
 }

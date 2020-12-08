@@ -4,9 +4,9 @@
             <ul>
                 <li>
                     <label>完成情况:</label>
-                    <select id='status'>
-                        <option value='success'>顺利完成</option>
-                        <option value='delayed'>延期</option>
+                    <select  id='status' (select)="shout()">
+                        <option  value='success'>顺利完成</option>
+                        <option  value='delayed'>延期</option>
                     </select>
                 </li>
                 <li *ngIf='isMilestoneBarShow()'>
@@ -22,7 +22,7 @@
                 </li>
             </ul>
 
-            <input type="submit" value="确定">
+            <input type="submit" value="确定" >
         </form>
        
     </div>

@@ -8,7 +8,7 @@
     <span>{{getCategory()}}</span>
 </td>
 <td class="content">
-    <span>{{content}}</span>
+    <span>{{toDo.content}}</span>
 </td>
 <td class="complex_type">
     <span>{{getComplexType()}}</span>
@@ -17,12 +17,12 @@
     <span>{{getStatus()}}</span>
 </td>
 <td class="create_date">
-    <span>{{create_date}}</span>
+    <span>{{toDo.create_date}}</span>
 </td>
 <td>
     <button *ngIf='isStartBtnShow()' class="start_btn" (click)='start()'>开始</button>
-    <button *ngIf='isPauseBtnShow()' class="pause_btn" (click)='pause()'>{{pauseBtnText}}</button>
+    <button *ngIf='isPauseBtnShow()' class="pause_btn" (click)='pause()'>{{getPauseBtnText()}}</button>
     <button *ngIf='isFinishBtnShow()' class='finish_btn' (click)='finish()'>结束</button>
 </td>
-<app-to-do-result *ngIf='isResultBoxShow()'></app-to-do-result>
+
 

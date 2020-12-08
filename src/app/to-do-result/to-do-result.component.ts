@@ -26,4 +26,10 @@ export class ToDoResultComponent implements OnInit {
       return false;
   }
 
+
+
+  shout(){
+    alert("change!")
+  }
+
 }

@@ -12,19 +12,15 @@
                 <th>操作区</th>
             </tr>
         </thead>
-        <tbody>
-            <tr app-to-do *ngFor="let d of toDoList, let i = index"
-                [index]="i+1" 
-                [content]="d.content"
-                [emergency_level]="d.emergency_level"
-                [category_type]='d.category_type'
-                [complex_type]='d.complex_type'
-                [create_date]='d.create_date'
-                [status]='d.status'>
+        <tbody >
+            <tr  app-to-do *ngFor="let d of toDoList, let i = index"
+                [toDo]="d" [style.background-color]="isCurrent(d)?'green':'white'">
             </tr>
         </tbody>
     </table>
 
-<!--
-<app-to-do-result></app-to-do-result>
--->
+    <!-- 这里如果跨区域进行绑定 ? -->
+    <app-to-do-result *ngIf=''></app-to-do-result>
+
+
+
