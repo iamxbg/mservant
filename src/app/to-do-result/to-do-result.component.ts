@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComplexType } from '../to-do-list/ToDoEnums';
+import { TaskType } from '../to-do-list/ToDoEnums';
 import { toDo } from '../to-do-list/toDoModel';
 
 @Component({
@@ -20,7 +20,7 @@ export class ToDoResultComponent implements OnInit {
   }
 
   isMilestoneBarShow():boolean{
-    if(this.toDo.complex_type == ComplexType.Steps)
+    if(this.toDo.task_type === TaskType.Milestone)
       return true;
     else 
       return false;

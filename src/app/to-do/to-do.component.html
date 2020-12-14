@@ -8,16 +8,16 @@
     <span>{{getCategory()}}</span>
 </td>
 <td class="content">
-    <span>{{toDo.content}}</span>
+    <span>{{toDo.name}}</span>
 </td>
 <td class="complex_type">
-    <span>{{getComplexType()}}</span>
+    <span>{{getTaskType()}}</span>
 </td>
 <td class="status">
     <span>{{getStatus()}}</span>
 </td>
 <td class="create_date">
-    <span>{{toDo.create_date}}</span>
+    <span>{{toDo.create_time}}</span>
 </td>
 <td>
     <button *ngIf='isStartBtnShow()' class="start_btn" (click)='start()'>开始</button>

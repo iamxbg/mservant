@@ -15,11 +15,24 @@ export class ToDoListComponent implements OnInit {
   toDoList:toDo[] = new Array();
 
   constructor(private toDoService:ToDoServiceService) {
+    /*
     this.toDoList.push(new toDo(1,"逃出生天",Category.Task,EmergencyLevel.Low))
     this.toDoList.push(new toDo(2,"学习总结",Category.Task,EmergencyLevel.Normal,ComplexType.Steps))
     this.toDoList.push(new toDo(3,"换高薪工作",Category.Job,EmergencyLevel.High,ComplexType.Block))
-    
-    
+  */
+
+    this.toDoService.getTask().subscribe(
+        {
+          next:(data)=>{
+            console.log("LEN:"+data.length);
+            //for(var d in data) is error
+            for(var d of data){
+              this.toDoList.push(d);
+            }
+            
+          }
+        }
+    )
   }
 
   ngOnInit() {

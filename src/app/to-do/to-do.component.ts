@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 
-import { Category, ComplexType, EmergencyLevel, TaskStatus } from '../to-do-list/ToDoEnums';
+import {  EmergencyLevel, TaskStatus, TaskType } from '../to-do-list/ToDoEnums';
 import { toDo } from '../to-do-list/toDoModel';
 import { ToDoServiceService } from '../to-do-service.service';
 
@@ -36,11 +36,11 @@ export class ToDoComponent implements OnInit {
   }
 
   getEmergencyLevelColor(): string {
-    if(this.toDo.emergency_level==EmergencyLevel.Low)
+    if(this.toDo.emergency_level ===EmergencyLevel.Low)
       return  'blue';
-    else if(this.toDo.emergency_level==EmergencyLevel.Normal)
+    else if(this.toDo.emergency_level ===EmergencyLevel.Normal)
       return 'yellow';
-    else if(this.toDo.emergency_level == EmergencyLevel.High)
+    else if(this.toDo.emergency_level === EmergencyLevel.High)
       return 'red'
     else return 'black'
     /*
@@ -59,23 +59,15 @@ export class ToDoComponent implements OnInit {
   }
 
 
-  getCategory():string {
-    if(this.toDo.category_type == Category.Job){
-      return '工作';
-    }else if(this.toDo.category_type == Category.Learn){
-      return '学习';
-    }else if(this.toDo.category_type == Category.Task){
-      return '任务';
-    }
-  }
 
-  getComplexType():string {
-    if(this.toDo.complex_type == ComplexType.Block){
+
+  getTaskType():string {
+    if(this.toDo.task_type === TaskType.Block){
       return '连续';
-    }else if(this.toDo.complex_type == ComplexType.Slip){
+    }else if(this.toDo.task_type === TaskType.Slip){
       return '简单';
-    }else if(this.toDo.complex_type == ComplexType.Steps){
-      return '持久';
+    }else if(this.toDo.task_type === TaskType.Milestone){
+      return '步骤';
     }
   }
 

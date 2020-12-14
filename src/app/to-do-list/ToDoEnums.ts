@@ -3,13 +3,13 @@
  *  block - 暂用时间适中，应该连续进行达到完成的任务
  *  steps - 占用时间比较多，应该分布按计划进行的任务
  */
-export enum ComplexType { Slip,Block,Steps}
+export enum TaskType { 
+    Slip=0,
+    Block=1,
+    Milestone=2
+}
 
-/**
- * 任务类型，后期应该在数据库中配置
- *  因为真实的任务，比如学习就像技能树一样
- */
-export enum Category { Learn,Job,Task }
+
 
 /**
  * 任务紧急程度:
@@ -17,7 +17,11 @@ export enum Category { Learn,Job,Task }
  *  normal - 一般
  *  High - 高
  */
-export enum EmergencyLevel { Low,Normal,High}
+export enum EmergencyLevel { 
+    Low=0,
+    Normal=1,
+    High=2
+}
 
 /**
  *  hibernated - 冬眠

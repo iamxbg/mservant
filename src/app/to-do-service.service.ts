@@ -1,6 +1,8 @@
 import { Injectable,EventEmitter } from '@angular/core';
 import { toDo } from './to-do-list/toDoModel';
 import { TaskStatus } from './to-do-list/ToDoEnums';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +15,19 @@ export class ToDoServiceService {
   //TODO use getter replace public word
   //public setCurrentEvent:EventEmitter<toDo> = new EventEmitter<toDo>();
 
-  constructor() {
+  private httpClient:HttpClient;
 
+  constructor(client:HttpClient) {
+      this.httpClient = client;
 
   }
+
+  public getTask():Observable<Array<toDo>>{
+
+    console.log("invoke getTask")
+    return this.httpClient.get<Array<toDo>>("http://localhost:3000/getAll");
+  }
+
 
   public setCurrent(td:toDo){
     this.current = td;

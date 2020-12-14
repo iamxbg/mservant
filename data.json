@@ -1,60 +1,51 @@
-{
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "params": "hello",
-      "id": 2
-    },
-    {
-      "params": "dddd",
-      "id": 3
-    },
-    {
-      "params": "ZZZZ",
-      "id": 4
-    },
-    {
-      "params": "FFF",
-      "id": 5
-    },
-    {
-      "params": "FFF",
-      "id": 6
-    },
-    {
-      "params": "FFF",
-      "id": 7
-    },
-    {
-      "params": "FFF",
-      "id": 8
-    },
-    {
-      "params": "Hello DUe",
-      "id": 9
-    },
-    {
-      "params": "Hello Dude",
-      "id": 10
-    },
-    {
-      "content": "work",
-      "desc": "工作",
-      "id": 11
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+{ 
+    "getAll":[
+      {
+        "id":1,
+        "version":0,
+        "is_master":1,
+        "task_type":0,
+        "name":"扭腰50个",
+        "desc":null,
+        "current_step":null,
+        "total_step":1,
+        "category":"SPORT",
+        "emergency_level":0,
+        "status":"UNSTARTED",
+        "create_time":"2020-12-14 21:00:000",
+        "plan_start_time":"2020-12-14 23:00:000",
+        "deadline":null,
+        "plan_consume_mins":20,
+        "actual_consume_mins":null,
+        "start_time":null,
+        "end_time":null,
+        "result":null,
+        "score":null,
+        "sys_version":0
+      },
+      {
+        "id":2,
+        "version":0,
+        "is_master":1,
+        "task_type":2 ,
+        "name":"整理物理资料",
+        "desc":null,
+        "current_step":null,
+        "total_step":1,
+        "category":"PHYSICS",
+        "emergency_level":1,
+        "status":"UNSRATED",
+        "create_time":"2020-12-14 21:00:000",
+        "plan_start_time":"2020-12-14 22:00:000",
+        "deadline":null,
+        "plan_consume_mins":60,
+        "actual_consume_mins":null,
+        "start_time":null,
+        "end_time":null,
+        "result":null,
+        "score":null,
+        "sys_version":0
+      }
+    ]
+
 }
