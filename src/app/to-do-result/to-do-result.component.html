@@ -1,7 +1,10 @@
-<div id='floatBox'>
+<div id='bottom'></div>
+<div id='top'>
+    <div id='taskName'>{{toDo.name}}</div>
     <div id='editBox'>
-        <form id='resultForm'>
+        <form id='submitForm'>
             <ul>
+                
                 <li>
                     <label>完成情况:</label>
                     <select  id='status' (select)="shout()">
@@ -13,7 +16,9 @@
                     <label style="float:left">进度情况:</label>
                     <app-milestone-bar [total]="total" [step]="step"></app-milestone-bar>
                 </li>
-
+                <li >
+                    <label>打分:</label>
+                </li>
                 <li>
                     <label>备注:</label>
                     <textarea id='comment'>
@@ -22,7 +27,7 @@
                 </li>
             </ul>
 
-            <input type="submit" value="确定" >
+            <input type="submit" value="确定" (click)="submit()">
         </form>
        
     </div>

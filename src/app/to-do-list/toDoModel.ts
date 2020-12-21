@@ -1,10 +1,13 @@
 import {  TaskType, EmergencyLevel, TaskStatus } from './ToDoEnums'; 
+
 export class toDo {
 
     constructor(public id:number,
                 public version:number,
                 public is_master:boolean,
                 public task_type:number,
+                public name:string,
+                public desc:string,
                 public current_step:number,
                 public total_step:number,
                 public category:number,
@@ -23,11 +26,5 @@ export class toDo {
 
                 }
 
-
-
-
-    public getId():number {
-        return this.id;
-    }
     
 }

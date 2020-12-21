@@ -1,8 +1,9 @@
-import { Component, OnInit,EventEmitter } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { Console } from 'console';
 import { from } from 'rxjs';
 import { ToDoServiceService } from '../to-do-service.service';
 import { ToDoComponent } from '../to-do/to-do.component'
-import { Category, ComplexType, EmergencyLevel } from './ToDoEnums';
+import { EmergencyLevel, TaskStatus } from './ToDoEnums';
 import { toDo } from './toDoModel';
 
 @Component({
@@ -12,36 +13,43 @@ import { toDo } from './toDoModel';
 })
 export class ToDoListComponent implements OnInit {
 
-  toDoList:toDo[] = new Array();
+  //toDoList:toDo[] = new Array();
 
   constructor(private toDoService:ToDoServiceService) {
-    /*
-    this.toDoList.push(new toDo(1,"逃出生天",Category.Task,EmergencyLevel.Low))
-    this.toDoList.push(new toDo(2,"学习总结",Category.Task,EmergencyLevel.Normal,ComplexType.Steps))
-    this.toDoList.push(new toDo(3,"换高薪工作",Category.Job,EmergencyLevel.High,ComplexType.Block))
-  */
 
-    this.toDoService.getTask().subscribe(
-        {
-          next:(data)=>{
-            console.log("LEN:"+data.length);
-            //for(var d in data) is error
-            for(var d of data){
-              this.toDoList.push(d);
-            }
-            
-          }
-        }
-    )
+  }
+
+  getActived():toDo[]{
+    return this.toDoService.toDoList.filter(td=>
+      td.status === TaskStatus.PROCESSING
+      || td.status === TaskStatus.PAUSE
+      || td.status === TaskStatus.FINISH)
+  }
+
+  getToDos():toDo[]{
+    return this.toDoService.toDoList;
   }
 
   ngOnInit() {
+      
+    this.toDoService.loadAll();
   }
 
-  isCurrent(td:toDo):boolean {
-    return this.toDoService.getCurrent()!=null && this.toDoService.getCurrent().getId() === td.id;
+  isCurrentProcessing(td:toDo):boolean {
+      return td.status === TaskStatus.PROCESSING;
   }
 
+  showResultBox():boolean {
+    console.log("check")
+    return this.toDoService.toDoList.filter(td=>
+      td.status === TaskStatus.FINISH
+    ).length>0?true:false;
+  }
+
+  getFinished():toDo {
+    let finished = this.toDoService.toDoList.filter(td=> td.status === TaskStatus.FINISH)
+    return finished!=null?finished[0]:null;
+  }
 
 }
 

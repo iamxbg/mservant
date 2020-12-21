@@ -5,7 +5,7 @@
     <div class="emergency_level_circle" [style.background-color]="getEmergencyLevelColor()"></div>
 </td>
 <td class="category">
-    <span>{{getCategory()}}</span>
+    <span>CATEGORY</span>
 </td>
 <td class="content">
     <span>{{toDo.name}}</span>
@@ -21,7 +21,7 @@
 </td>
 <td>
     <button *ngIf='isStartBtnShow()' class="start_btn" (click)='start()'>开始</button>
-    <button *ngIf='isPauseBtnShow()' class="pause_btn" (click)='pause()'>{{getPauseBtnText()}}</button>
+    <button *ngIf='isPauseBtnShow()' class="pause_btn" (click)='pauseOrResume()'>{{getPauseBtnText()}}</button>
     <button *ngIf='isFinishBtnShow()' class='finish_btn' (click)='finish()'>结束</button>
 </td>
 

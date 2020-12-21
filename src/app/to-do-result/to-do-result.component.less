@@ -1,45 +1,67 @@
-#floatBox{
+#bottom{
     width: 100%;
-    height: 500px;
-    background-color: blueviolet;
+    height: 100%;
+    left:0px;
+    top:0px;
+    position: fixed;  
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+
+    background-color: black;
+    opacity: 70%;
+}
+#top{
+    width: 100%;
+    height:100%;
 
     left:0px;
     top:0px;
-  
-    //float: left;
     position: fixed;
-    z-index: 9999;
+    display: flex; 
+    flex-direction: column;
 
-    display: flex;
-    justify-content:center;
-    justify-items: center;
+
+    #taskName{
+        float: left;
+        background-color: red;
+        height: 30px;
+        margin-bottom: 20px;
+    }
 
     #editBox{
-        margin-top: 100px;
-        width: 50%;
-        height: 300px;
-        border: 1px solid red;
+        float:left;
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        margin-left: 20%;
+        background-color: white;
+
+        justify-content:center;
+        justify-items: center;
 
         li{
             list-style: none;
             float:left;
+
+            //这里为何没有实现100%的宽度效果
             width: 100%;
             background-color: aquamarine;
             margin-top: 10px;
-
-            select,input{
-                width: 200px;
-            }
+            
         }
 
-        display: flex;
-        justify-content:center;
-
-        
-        
-
-        form#resultForm{
-            select#status {
+        #submitForm{
+            //position: relative;
+            
+            
+            input[type=submit]{
+               float:right;
+                width:200px;
+                background-color: red;
+                //position:relative;
+                margin-top: 100px;
+                margin-bottom: 10px;
 
             }
         }

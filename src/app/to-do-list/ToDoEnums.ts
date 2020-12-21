@@ -4,9 +4,9 @@
  *  steps - 占用时间比较多，应该分布按计划进行的任务
  */
 export enum TaskType { 
-    Slip=0,
-    Block=1,
-    Milestone=2
+    SLIP=0,
+    BLOCK=1,
+    MILESTONE=2
 }
 
 
@@ -18,29 +18,22 @@ export enum TaskType {
  *  High - 高
  */
 export enum EmergencyLevel { 
-    Low=0,
-    Normal=1,
-    High=2
+    LOW=0,
+    MIDDLE=1,
+    HIGH=2
 }
 
 /**
- *  hibernated - 冬眠
- *  active - 激活,等待执行
- *  outdated - 过期未执行
- *  processing - 处理中
- *  finish - 结束,中间状态,具体结果等待登记
- *  terminated - 终止
- *  fail  - 失败
- *  complete  - 完成
+ * 定义见dict_t表
  */
 export enum TaskStatus {
-    Hibernated,
-    Active,
-    Outdated,
-    Processing,
-    Finish,
-    Terminated,
-    Pause,
-    Fail,
-    Complete
+    UNSTATED=0,
+    WAITING=1,
+    OUTDATED=2,
+    PROCESSING=3,
+    FINISH=4,
+    TERMINATED=5,
+    PAUSE=6,
+    FAIL=7,
+    COMPLETE=8
 }

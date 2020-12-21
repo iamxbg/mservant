@@ -9,48 +9,47 @@ import { Observable } from 'rxjs';
 })
 export class ToDoServiceService {
 
-  currentToDos:toDo[] = new Array<toDo>();
-  private current:toDo;
+  private base_url:string="http://localhost:3000/todo/"
 
-  //TODO use getter replace public word
-  //public setCurrentEvent:EventEmitter<toDo> = new EventEmitter<toDo>();
-
-  private httpClient:HttpClient;
-
-  constructor(client:HttpClient) {
-      this.httpClient = client;
+  constructor(private client:HttpClient) {
 
   }
 
-  public getTask():Observable<Array<toDo>>{
+  toDoList:toDo[] = new Array();
 
-    console.log("invoke getTask")
-    return this.httpClient.get<Array<toDo>>("http://localhost:3000/getAll");
+  setStatus(td:toDo,status:TaskStatus):Observable<toDo>{
+    
+    //TODO 应该使用ES6的clone方法
+    td.status = status;
+    return this.client.put<toDo>(this.base_url+td.id,td);
   }
 
 
-  public setCurrent(td:toDo){
-    this.current = td;
+  loadAll():void{
+    console.log("load")
+      this.client.get<Array<toDo>>(this.base_url)
+        .subscribe({
+          next:(data)=>{
+            this.toDoList = data;
+          }
+        })
   }
 
-  getCurrent():toDo{
-    return this.current;
+  
+  remove(td:toDo):Observable<any> {
+     return this.client.delete(this.base_url+td.id);
   }
 
-  pushToCurrents(td:toDo){
 
-    if(this.currentToDos.length<2){
-      if(this.current!=null)
-      this.current.status = TaskStatus.Pause;
-
-      this.currentToDos.push(td);
-      this.setCurrent(td);
-      td.status = TaskStatus.Processing;
-
-    }else{
-      alert("同时进行任务不能超出"+this.currentToDos.length+"个");
-      return;
-    }
+  add(td:toDo):Observable<toDo> {
+    return this.client.post<toDo>(this.base_url,toDo);
   }
+
+  update(td:toDo):Observable<any> {
+     return this.client.put<number>(this.base_url,td);
+   
+  }
+
+  
 
 }
