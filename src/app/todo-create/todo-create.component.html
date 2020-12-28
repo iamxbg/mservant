@@ -1,0 +1,112 @@
+
+<div id="bottom"></div>
+<div id="top">
+    <!-- 任务的基本信息 -->
+    <div id="create-container-basic">
+        <ul>
+            <li>
+                <span>名称:</span>
+                <div class="options">
+                    <input [(ngModel)]="name">
+                </div>                   
+            </li>
+            <li>
+                <span>备注:</span>
+                <div class="options">
+                    <input [(ngModel)]="desc">
+                </div>
+            </li>
+            <li>
+                <span>类别:</span>
+                <div class="options">
+                    <!--
+                    <img class="img_icon" title="科学" src="../../assets/img/science_icon.jpeg">
+                    -->
+                    <select id="category_selector" [(ngModel)]="categoryStr">
+                        <option value="0">自然科学</option>
+                        <option value="1">计算机</option>
+                        <option value="2">工作</option>
+                        <option value="3">健康</option>
+                        <option value="4">生活</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span>类型:</span>
+                <div  class="options">
+                    <select [(ngModel)]="taskTypeStr">
+                        <option value="0">便签</option>
+                        <option value="1">普通</option>
+                        <option value="2">里程碑</option>
+                        <option value="3">定期</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span>重要性:</span>
+                <div class="options">
+                    <select [(ngModel)]="importanceStr">
+                        <option  value="0">低</option>
+                        <option  value="1">比较低</option>
+                        <option  value="2">一般</option>
+                        <option  value="3">比较高</option>
+                        <option  value="4">高</option>
+                    </select>
+                </div>
+                <!--
+                <div class="options">
+                    <div class="option" style="background-color: blue;"></div>
+                    <div class="option" style="background-color: skyblue;"></div>
+                    <div class="option" style="background-color: greenyellow;"></div>
+                    <div class="option" style="background-color: orangered;"></div>
+                    <div class="option" style="background-color: red;"></div>
+                </div>
+                -->
+            </li>
+            <li>
+                <span>紧急度:</span>
+                <div class="options">
+                    <select [(ngModel)]="emergencyStr">
+                        <option selected value="0">低</option>
+                        <option selected value="1">比较低</option>
+                        <option selected value="2">一般</option>
+                        <option selected value="3">比较高</option>
+                        <option selected value="4">高</option>
+                    </select>
+                </div>
+                <!--
+                <div class="options">
+                    <div class="option" style="background-color: blue;"></div>
+                    <div class="option" style="background-color: skyblue;"></div>
+                    <div class="option" style="background-color: greenyellow;"></div>
+                    <div class="option" style="background-color: orangered;"></div>
+                    <div class="option" style="background-color: red;"></div>
+                </div>
+                -->
+            </li>
+            <li>
+                <span>奖励分:</span>
+                <div class="options">
+                    <input [(ngModel)]="rewardScoreStr"/>
+                </div>
+            </li>
+        </ul>
+
+        <div id='create-container-bottom'>
+            <button id='cancel-create-btn' (click)='cancel()'>取消</button>
+            <button id='commit-create-btn' (click)="commit()">确定</button>
+        </div>
+    </div>
+    <!-- 任务的扩展信息: 普通型 -->
+    <div id="todo-ext-noraml" *ngIf="taskType == 1">
+        普通
+    </div>
+    <!-- 任务的扩展信息: 里程碑型 -->
+    <div id="todo-ext-milestone" *ngIf="taskType == 2">
+        里程碑
+    </div>
+    <!-- 任务的扩展信息: 定期型 -->
+    <div id='todo-ext-dated' *ngIf="taskType == 3 ">
+        日期选择
+    </div>
+</div>

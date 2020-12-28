@@ -1,0 +1,47 @@
+<div id='bottom'></div>
+<div id='top'>
+
+    
+    <div id="left">
+        <div id='todo-name'>
+            <span>{{todo.name}}</span>
+        </div>
+        <ul>
+            <li>
+                <span>类型:</span>
+                <span>{{getTaskType()}}</span>
+            </li>
+            <li>
+                <span>紧急度:</span>
+                <span>{{getEmergency()}}</span>
+            </li>
+            <li>
+                <span>重要性:</span>
+                <span>{{getImportance()}}</span>
+            </li>
+            <li>
+                <span>创建时间:</span>
+            </li>
+            <li>
+                <span>总耗时:</span>
+            </li>
+            <li>
+                <span>事件总数:</span>
+                <span>{{getEventsCount()}}</span>
+            </li>
+        </ul>
+    </div>
+    <div id='right'>
+        <div id='view-action-bar'>
+            <ul id='change-view-style'>
+                <li><button>按日期</button></li>
+                <li><button>按类型</button></li>
+            </ul>
+            <button id='closeView' (click)="close()">返回</button>
+        </div>
+        <div id='content'>
+
+        </div>
+    </div>
+</div>
+

@@ -7,27 +7,33 @@
                 
                 <li>
                     <label>完成情况:</label>
-                    <select  id='status' (select)="shout()">
-                        <option  value='success'>顺利完成</option>
-                        <option  value='delayed'>延期</option>
+                    <!--
+                    <select  id='status' (change)="resultChange($event)">
+                    -->
+                    <select  id='status' name="status"  [(ngModel)]="resultTag" (change)="setResult()">
+                        <option   value='6'>失败</option>
+                        <option value="5" selected>完成</option>
                     </select>
                 </li>
+                <!--
                 <li *ngIf='isMilestoneBarShow()'>
                     <label style="float:left">进度情况:</label>
                     <app-milestone-bar [total]="total" [step]="step"></app-milestone-bar>
                 </li>
-                <li >
+                -->
+                <li *ngIf="showScoreBar">
                     <label>打分:</label>
                 </li>
                 <li>
                     <label>备注:</label>
-                    <textarea id='comment'>
+                    <textarea name="comment" id='comment' [(ngModel)]="comment">
 
                     </textarea>
                 </li>
             </ul>
-
-            <input type="submit" value="确定" (click)="submit()">
+            
+            <button id='cancel' class="cancelBtn" (click)="cancel()">取消</button> 
+            <input type="submit" class="sureBtn" value="确定" (click)="submit()">
         </form>
        
     </div>

@@ -1,4 +1,4 @@
-import { TaskType } from "./ToDoEnums";
+import { TaskType } from "./ToDoDictUtil";
 
 export class Category {
 

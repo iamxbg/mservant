@@ -23,13 +23,18 @@
 
 
     #taskName{
+        margin-top: 100px;
         float: left;
         background-color: red;
         height: 30px;
-        margin-bottom: 20px;
+        /*margin-bottom: 20px;*/
+        width: 60%;
+        margin-bottom: 2px;
+        margin-left: 20%;
     }
 
     #editBox{
+       
         float:left;
         display: flex;
         flex-direction: row;
@@ -51,18 +56,36 @@
             
         }
 
+        
+
         #submitForm{
-            //position: relative;
-            
-            
-            input[type=submit]{
-               float:right;
-                width:200px;
+
+            #cancel{
+                float:left;
+                width:60px;
+                height: 35px;
                 background-color: red;
                 //position:relative;
                 margin-top: 100px;
                 margin-bottom: 10px;
+                cursor: pointer;
+            
+            }
+            
+            input[type=submit]{
+               float:right;
+                width:60px;
+                height: 35px;
+                background-color: red;
+                //position:relative;
+                margin-top: 100px;
+                margin-bottom: 10px;
+                cursor: pointer;
+                
+            }
 
+            input[type=submit]:hover{
+                background-color: aquamarine;
             }
         }
     }

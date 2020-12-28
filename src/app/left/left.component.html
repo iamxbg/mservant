@@ -1,6 +1,16 @@
 <div id='left' (mouseover)="doExpand(true)" (mouseout)="doExpand(false)"
     [@expandLeft]="isExpand()"        
 >
-    <button routerLink='remeber-word'>背单词</button>
-    <button routerLink="to-do-list">代办事务</button>
+    <div id="bottom"></div>
+    <div id="top">
+        <ul>
+            <li>
+                <button routerLink='remeber-word'>背单词</button>
+            </li>
+            <li>
+                <button routerLink="todo-list">代办事务</button>
+            </li>
+        </ul>      
+    </div>
+    
 </div>

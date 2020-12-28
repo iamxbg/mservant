@@ -12,11 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RememberWordComponent } from './remember-word/remember-word.component';
 import { TestPlaceComponent } from './test-place/test-place.component'
 import { routing } from './app.routing';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { ToDoListComponent } from './todo-list/todo-list.component';
 import { RememberWordsServiceService } from './remember-word/remember-words-service.service';
-import { ToDoComponent } from './to-do/to-do.component';
-import { ToDoResultComponent } from './to-do-result/to-do-result.component';
+import { ToDoRecordComponent } from './todo-record/todo-record.component';
+import { ToDoResultComponent } from './todo-result/todo-result.component';
 import { MilestoneBarComponent } from './milestone-bar/milestone-bar.component';
+import { ToDoCommentComponent } from './todo-comment/todo-comment.component';
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { TodoManageComponent } from './todo-manage/todo-manage.component';
+import { TodoCreateComponent } from './todo-create/todo-create.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,13 @@ import { MilestoneBarComponent } from './milestone-bar/milestone-bar.component';
     RememberWordComponent,
     TestPlaceComponent,
     ToDoListComponent,
-    ToDoComponent,
+    ToDoRecordComponent,
     ToDoResultComponent,
-    MilestoneBarComponent
+    MilestoneBarComponent,
+    ToDoCommentComponent,
+    TodoDetailComponent,
+    TodoManageComponent,
+    TodoCreateComponent
   ],
   imports: [
     BrowserModule,

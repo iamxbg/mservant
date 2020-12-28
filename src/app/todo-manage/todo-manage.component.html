@@ -1,0 +1,110 @@
+<!-- 操作栏-->
+<div id="action-bar">
+    <div id="return">
+        <button routerLink='/todo-list'>返回</button>
+    </div>
+    <div id='search-conditions'>
+        <ul>
+            <li>
+                <span>任务类型:</span>
+                <select id='task_type'>
+                    <option>全部</option>
+                    <option>便签</option>
+                    <option>普通</option>
+                    <option>里程碑</option>
+                    <option>时间</option>
+                </select>
+            </li>
+            <li>
+                <span>类别:</span>
+                <span style="background-color: red;">此处替换为类别字典</span>
+            </li>
+            
+        </ul>
+    
+        <ul>
+            <li>
+                <span>状态:</span>
+                <select id='status'>
+                    <option>全部</option>
+                    <option>未完成</option>
+                    <option>已完成</option>
+                </select>
+            </li>
+            <li>
+                <span>创建时间</span>
+                <span style="background-color: red;">此处替换为时间插件</span>
+            </li>
+    
+            
+        </ul>
+        
+        <ul>
+            <li>
+                <span>紧急度:</span>
+                <select id='emergency'>
+                    <option>全部</option>
+                    <option>低</option>
+                    <option>比较低</option>
+                    <option>普通</option>
+                    <option>比较高</option>
+                    <option>高</option>
+                </select>
+            </li>
+            <li>
+                <span>重要性:</span>
+                <select id='importance'>
+                    <option>全部</option>
+                    <option>低</option>
+                    <option>比较低</option>
+                    <option>普通</option>
+                    <option>比较高</option>
+                    <option>高</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <button id="search-btn">查询</button>
+    </div>    
+    <!-- new -->
+    <div>
+        <button id='create-btn' (click)='createNew()'>新建</button>
+    </div>
+    
+</div>    
+
+<div id='content'>
+
+    <table id='to_do_manage_table'>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>内容</th>
+                <th>紧急度</th>
+                <th>重要性</th>
+                <th>分类</th>
+                <th>复杂度</th>
+                <th>状态</th>
+                <th>创建日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr app-todo-record 
+                *ngFor="let todo of todoList, let i = index" 
+                [toDo]="todo" 
+                [index]="i+1"
+                [recordMode]="'manage'"
+                (onDelete)="delete($event)"
+                [style.background-color]="'white'">
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<app-todo-create *ngIf="isCreateBoxShow" (onClose)="closeCreateBox($event)"></app-todo-create>
+

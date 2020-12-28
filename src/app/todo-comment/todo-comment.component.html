@@ -1,0 +1,22 @@
+<div id='bottom'></div>
+<div id='top'>
+    
+    <!-- * 显示本次任务的情况，任务的总体情况 -->    
+    <!--填写 备注信息,并进行合理性检查 -->
+    <!-- ?event是否需要打分模型 -->
+    <!-- 设置自动打分模型  -->
+    <!-- 是否可以添加附件 ? -->
+    <div id='sum-box'>
+        <button (click)="close()">取消</button>
+    </div>
+    <div id='comment-box'>
+        <span>备注：</span>
+        <textarea [(ngModel)]="comment">
+
+            
+        </textarea>
+
+        <button (click)="commit()">确认</button>
+    </div>
+</div>
+
