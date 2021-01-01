@@ -86,7 +86,11 @@ export class ToDoListComponent implements OnInit {
     this.toDoService.setStatus(this.currentTodo,TaskStatus.paused,event)
     .subscribe({
       next:(data)=>{
+        this.currentTodo.status = TaskStatus.paused
+        window.clearInterval(this.currentTodo['timer'])
         this.closeCommentBox();
+
+        
       },
       error:(cause)=>{
         alert("提交失败!")

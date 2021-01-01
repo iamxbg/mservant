@@ -1,8 +1,6 @@
-<td class="index">
+
+<td class="index" [style.background-color]="highlight?'green':'white'"> 
     <span>{{index}}</span>
-</td>
-<td class="content">
-    <span>{{toDo.name}}</span>
 </td>
 <td class="emergency">
     <div class="emergency_circle" [style.background-color]="getEmergencyColor()"></div>
@@ -13,23 +11,29 @@
 <td class="category">
     <span>CATEGORY</span>
 </td>
-<td class="complex_type">
+<td class="content">
+    <span>{{toDo.name}}</span>
+</td>
+<td class="task_type">
     <span>{{getTaskType()}}</span>
 </td>
 <td class="status" [style.background-color]="getStatusColor()">
     <span>{{getStatus()}}</span>
 </td>
 <td class="create_date">
-    <span>{{toDo.create_time}}</span>
+    <span>{{toDo.createTime | date: 'yyyy-MM-dd &nbsp;&nbsp;HH:mm'}}</span>
+</td>
+<td class="consumed_time">
+    <span>{{toDo.actualConsumeSecs}}</span>
 </td>
 <!-- list操作-->
-<td *ngIf="recordMode == 'edit' ">
+<td *ngIf="recordMode == 'edit' " class="operations">
     <button *ngIf='isStartBtnShow()'  (click)='start()'>开始</button>
     <button *ngIf='isPauseBtnShow()'  (click)='pauseOrResume()'>{{getPauseBtnText()}}</button>
     <button *ngIf='isFinishBtnShow()' (click)='finish()'>结束</button>
     <button *ngIf="isDetailBtnShow()" (click)="showDetail()">详情</button>
 </td>
-<td *ngIf="recordMode == 'manage' ">
+<td *ngIf="recordMode == 'manage' " class="operations">
     <button  *ngIf="isTerminateBtnShow()"  (click)="terminate()">终止</button>
     <button *ngIf="isHibernateBtnShow()" (click)="hibernate()">冻结</button>
     <button *ngIf="isReschedulerBtnShow()" (click)="reschedule()">重启</button>

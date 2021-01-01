@@ -10,6 +10,9 @@ import { ToDoService } from '../todo.service';
 })
 export class ToDoRecordComponent implements OnInit {
 
+    
+  private timerMap = new Map()
+
   @Input()
   index:number;
 
@@ -18,6 +21,9 @@ export class ToDoRecordComponent implements OnInit {
 
   @Input()
   recordMode:string;
+
+  @Input()
+  highlight:boolean;
 
   /**
    * show result registor box 
@@ -46,7 +52,13 @@ export class ToDoRecordComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    if(this.toDo.status == TaskStatus.processing){
+      //add  
+      this.toDo['timer'] == setInterval(()=>{this.toDo.actualConsumeSecs+=1},1000)
+    }else{
+      this.toDo['timer'] = null
+    }
+    
   }
 
 
@@ -111,17 +123,34 @@ export class ToDoRecordComponent implements OnInit {
 
       this.onShowComment.emit(this.toDo)
 
-
     }else{
       //switch to processing
       this.toDoService.toDoList
       .filter(td=>td.status === TaskStatus.processing)
-      .forEach(td=> td.status = TaskStatus.paused)
+      //.forEach(td=> td.status = TaskStatus.paused)
+      .forEach(td=> 
+        this.toDoService.setStatus(td,TaskStatus.paused,"sys:switch-paused")
+          .subscribe({
+            next:(data)=>{
+             // window.clearInterval(td.timer)
+             window.clearInterval(td['timer'])
+             td.status = TaskStatus.paused
+            },
+            error:()=>{
+              alert("暂停子任务失败!")
+            }
+          })
+        )
+      
 
       //TODO 深入研究rxJS,整合所有的Observable然后进行动作
       this.toDoService.setStatus(this.toDo,TaskStatus.processing)
         .subscribe({
-          next:()=>{ this.toDo.status= TaskStatus.processing}
+          
+          next:()=>{ 
+            this.toDo['timer'] = setInterval(()=>{ this.toDo.actualConsumeSecs=this.toDo.actualConsumeSecs+1},1000)
+            this.toDo.status= TaskStatus.processing
+          }
         })
 
       //this.toDo.status = TaskStatus.processing;

@@ -7,14 +7,15 @@
     <table id='to_do_list_table' >
         <thead >
             <tr>
-                <th >序号</th>
-                <th >内容</th>           
-                <th >紧急度</th>
-                <th >重要性</th>
+                <th style="width: 30px;"></th>
+                <th style="width: 30px;"><img style="padding-left:5px;width: 20px;height: 20px; float: left;" src="../../assets/img/emergency.gif"></th>
+                <th style="width: 30px;"><img style="padding-left:5px;width: 20px;height:20px ;float: left;" src="../../assets/img/important.jpeg"></th>
                 <th >分类</th>
-                <th >复杂度</th>
+                <th >内容</th>                          
+                <th >类型</th>
                 <th >状态</th>
                 <th >创建日期</th>
+                <th>已耗时</th>
                 <th>操作区</th>
             </tr>
         </thead>
@@ -26,7 +27,7 @@
                 *ngFor="let d of getToDos(), let i = index"
                 [toDo]="d" 
                 [index]="i+1" 
-                [style.background-color]="isCurrentProcessing(d)?'green':'white'"
+                [highlight]="isCurrentProcessing(d)"
                 [recordMode]="'edit'">
             </tr>
         </tbody>

@@ -27,7 +27,7 @@
         float:left;
         margin-top: 30px;
         margin-left: 5%;
-        width: 30%;
+        width: 20%;
         height: 90%;
         background-color: red;
 
@@ -36,26 +36,32 @@
     #right {
         margin-top: 30px;
         float: left;
-        width: 60%;
+        width: 70%;
         height: 90%;
         background-color: yellowgreen;
 
         #view-action-bar{
             background-color: palevioletred;
-            height: 30px;
+            height:5%;
             width: 100%;
 
             li{
                 float:left;
             }
+
+            #closeView {
+                float:right;
+            }
         }
 
-        #closeView {
-            float:right;
-        }
+        
 
         #content {
             background-color: plum;
+            height: 95%;
+            overflow:scroll;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
     }
