@@ -5,6 +5,7 @@ import {ToDoEvent} from './todo-list/ToDoEvent';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { CommandName } from 'protractor';
+import { ToDoEventTimeGroup } from './todo-list/ToDoEventTimeGroup';
 
 @Injectable({
   providedIn: 'root'
@@ -109,6 +110,11 @@ export class ToDoService {
       headers:{"Access-Control-Allow-Origin":"*"}
     });
 
+  }
+
+  getEventsOfTodoGroupByDate(tde:ToDoEvent):Observable<Array<ToDoEventTimeGroup>> {
+
+    return this.client.post<Array<ToDoEventTimeGroup>>(this.todoEvent_base_url+"/selectByTodoGroupByDate",tde)
   }
 
   

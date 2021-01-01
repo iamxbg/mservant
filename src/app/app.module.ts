@@ -22,6 +22,7 @@ import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoManageComponent } from './todo-manage/todo-manage.component';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
 import { TodoEventComponent } from './todo-event/todo-event.component';
+import { TodoEventTimeComponent } from './todo-event-time/todo-event-time.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TodoEventComponent } from './todo-event/todo-event.component';
     TodoDetailComponent,
     TodoManageComponent,
     TodoCreateComponent,
-    TodoEventComponent
+    TodoEventComponent,
+    TodoEventTimeComponent
   ],
   imports: [
     BrowserModule,

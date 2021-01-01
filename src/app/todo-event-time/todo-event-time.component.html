@@ -1,0 +1,19 @@
+<div class="time_range">
+    <div class="datetime">
+        {{etg.dateStr}}
+    </div>
+    <div class="evnets">
+        <ul>
+            <li *ngFor="let et of etg.eventTimes">
+
+                <span>{{getTaskStatus(et)}}</span>
+                <span class="start_time">{{et.startDate | date:'HH:mm:ss'}}</span>
+                <span>=></span>
+                <span *ngIf="et.endEvent != null" class="end_time">{{et.endDate | date:'HH:mm:ss' }}</span>
+                <span style="margin-left: 10px;">{{et.comment}}</span>
+
+            </li>
+            
+        </ul>
+    </div>
+</div>

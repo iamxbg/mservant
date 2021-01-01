@@ -149,12 +149,56 @@ static getTaskTypeStr(todo:ToDo):string {
     }
 }
 
-/**
- *  获取状态
- */
- static getStatusStr(todo:ToDo):string {
+  /**
+   *  获取状态
+   */
+  static getStatusStr(todo:ToDo):string {
 
-    switch(todo.status){
+      switch(todo.status){
+        case TaskStatus.created:
+          return '新建'
+          
+        case TaskStatus.wait:
+          return '等待'
+          
+        case TaskStatus.undone:
+          return '未完成'
+          
+        case TaskStatus.processing:
+          return '处理中'
+          
+        case TaskStatus.paused:
+          return '暂停'
+          
+        case  TaskStatus.done:
+          return '完成'
+          
+        case TaskStatus.fail:
+          return '失败'
+          
+        case TaskStatus.reschedule:
+          return '重启'
+          
+        case TaskStatus.terminated:
+          return '终止'
+          
+        case TaskStatus.hibernate:
+          return '冻结'
+          
+        default:
+          return "未知状态:"+todo.status
+
+        //为何代码无法进入
+        //return status;
+      }
+  }
+
+    /**
+   *  获取状态
+   */
+  static getStatusStrByCode(code:number):string {
+
+    switch(code){
       case TaskStatus.created:
         return '新建'
         
@@ -192,4 +236,5 @@ static getTaskTypeStr(todo:ToDo):string {
       //return status;
     }
 }
+
 }

@@ -40,7 +40,7 @@
             <button id='closeView' (click)="close()">返回</button>
         </div>
         <div id='content'>
-            <app-todo-event *ngFor="let event of todoEvents"></app-todo-event>
+            <app-todo-event-time *ngFor="let et of etGroups" [etg]="et"></app-todo-event-time>
         </div>
     </div>
 </div>

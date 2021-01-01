@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToDo } from '../todo-list/ToDo';
 import { ToDoDictUtil } from '../todo-list/ToDoDictUtil';
 import { ToDoEvent } from '../todo-list/ToDoEvent';
+import { ToDoEventTime } from '../todo-list/ToDoEventTime';
+import { ToDoEventTimeGroup } from '../todo-list/ToDoEventTimeGroup';
 import { ToDoService } from '../todo.service';
 
 @Component({
@@ -16,7 +18,10 @@ export class TodoDetailComponent implements OnInit {
   @Input()
   private todo:ToDo;
 
-  private  todoEvents:Array<ToDoEvent> = new Array();
+  //private  todoEvents:Array<ToDoEvent> = new Array();
+
+  @Input()
+  private etGroups:Array<ToDoEventTimeGroup>;
 
   @Output()
   private onClose:EventEmitter<null> = new EventEmitter();
@@ -26,10 +31,10 @@ export class TodoDetailComponent implements OnInit {
     let ted:ToDoEvent = new ToDoEvent( null,null, null,this.todo.id);
 
     //get all the event of tasks
-    this.todoService.getEventsOfTodo(ted).subscribe({
+    this.todoService.getEventsOfTodoGroupByDate(ted).subscribe({
       next:(data)=>{
         console.log("comment-size:"+data.length)
-        this.todoEvents = data;
+        this.etGroups = data;
       }
     })
 
@@ -52,7 +57,7 @@ export class TodoDetailComponent implements OnInit {
   }
 
   getEventsCount():number {
-    return this.todoEvents.length;
+    return this.etGroups!=null?this.etGroups.length:0;
   }
 
 
