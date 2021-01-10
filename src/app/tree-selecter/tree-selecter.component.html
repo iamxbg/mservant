@@ -1,0 +1,11 @@
+<ul>
+    <li >
+        <form>
+            <select   [name]="'category_'+idx" *ngFor="let categories of showOptions;index as idx"  (change)="change(idx,$event)">
+              <option *ngFor="let category of categories;index as idx2" [value]="category.id"  >
+                {{category.name}}
+              </option>
+            </select>
+        </form>
+    </li>
+</ul>

@@ -230,7 +230,7 @@ static getTaskTypeStr(todo:ToDo):string {
         return '冻结'
         
       default:
-        return "未知状态:"+todo.status
+        return "未知状态:"
 
       //为何代码无法进入
       //return status;

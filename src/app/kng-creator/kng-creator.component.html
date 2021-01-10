@@ -1,0 +1,32 @@
+<div id="meta-info-editor">
+    <ul>
+        <li>
+            <span>Category</span>
+            <div class="meta-div">
+                <app-tree-selecter></app-tree-selecter>
+            </div>
+        </li>
+        <li>
+            <span>Tag</span>
+            <div class="meta-div">XXX</div>
+        </li>
+        <li>
+            <span>Title</span>
+            <div id="title" class="meta-div">
+                <input id="title"/>
+            </div>
+        </li>
+        <!-- <li>    
+            <span>Subject</span>
+            <div class="meta-div">XXX</div>
+        </li> -->
+    </ul>
+</div>
+<div id="content-editor">
+    <textarea id="editor" class="tabIndent">
+
+    </textarea>
+    <div>
+        <button id="submitBtn" (click)='submit()'>save</button>
+    </div>
+</div>

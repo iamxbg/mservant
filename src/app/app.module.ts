@@ -23,6 +23,8 @@ import { TodoManageComponent } from './todo-manage/todo-manage.component';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
 import { TodoEventComponent } from './todo-event/todo-event.component';
 import { TodoEventTimeComponent } from './todo-event-time/todo-event-time.component';
+import { KngCreatorComponent } from './kng-creator/kng-creator.component';
+import { TreeSelecterComponent } from './tree-selecter/tree-selecter.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { TodoEventTimeComponent } from './todo-event-time/todo-event-time.compon
     TodoManageComponent,
     TodoCreateComponent,
     TodoEventComponent,
-    TodoEventTimeComponent
+    TodoEventTimeComponent,
+	KngCreatorComponent,
+    TreeSelecterComponent
   ],
   imports: [
     BrowserModule,
