@@ -2,7 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskStatus, TaskType } from '../todo-list/ToDoDictUtil';
 import { ToDo } from '../todo-list/ToDo';
-import { ToDoService } from '../todo.service';
+import { ToDoService } from '../../todo.service';
 
 @Component({
   selector: 'app-todo-result',

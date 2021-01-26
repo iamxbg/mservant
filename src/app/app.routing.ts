@@ -2,8 +2,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { KngCreatorComponent } from "./kng-creator/kng-creator.component";
 import { RememberWordComponent } from './remember-word/remember-word.component';
 import { TestPlaceComponent } from './test-place/test-place.component';
-import { ToDoListComponent } from './todo-list/todo-list.component';
-import { TodoManageComponent } from "./todo-manage/todo-manage.component";
+import { ToDoListComponent } from './todo/todo-list/todo-list.component';
+import { TodoManageComponent } from "./todo/todo-manage/todo-manage.component";
 
 
 const routes:Routes = [

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DictService } from '../services/dict.service';
+import { DictService } from '../../services/dict.service';
 import { ToDoDictUtil } from '../todo-list/ToDoDictUtil';
 import { ToDoEvent } from '../todo-list/ToDoEvent';
 import { ToDoEventTime } from '../todo-list/ToDoEventTime';

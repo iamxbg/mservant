@@ -4,7 +4,7 @@ import { ToDoDictUtil } from '../todo-list/ToDoDictUtil';
 import { ToDoEvent } from '../todo-list/ToDoEvent';
 import { ToDoEventTime } from '../todo-list/ToDoEventTime';
 import { ToDoEventTimeGroup } from '../todo-list/ToDoEventTimeGroup';
-import { ToDoService } from '../todo.service';
+import { ToDoService } from '../../todo.service';
 
 @Component({
   selector: 'app-todo-detail',

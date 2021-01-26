@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToDo } from '../todo-list/ToDo';
 import { TaskStatus } from '../todo-list/ToDoDictUtil';
 import { ToDoEvent } from '../todo-list/ToDoEvent';
-import { ToDoService } from '../todo.service';
+import { ToDoService } from '../../todo.service';
 
 @Component({
   selector: 'app-todo-comment',

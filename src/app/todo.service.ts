@@ -1,11 +1,11 @@
 import { Injectable,EventEmitter } from '@angular/core';
-import { ToDo } from './todo-list/ToDo';
-import { TaskStatus } from './todo-list/ToDoDictUtil';
-import {ToDoEvent} from './todo-list/ToDoEvent';
+import { ToDo } from './todo/todo-list/ToDo';
+import { TaskStatus } from './todo/todo-list/ToDoDictUtil';
+import {ToDoEvent} from './todo/todo-list/ToDoEvent';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { CommandName } from 'protractor';
-import { ToDoEventTimeGroup } from './todo-list/ToDoEventTimeGroup';
+import { ToDoEventTimeGroup } from './todo/todo-list/ToDoEventTimeGroup';
 
 @Injectable({
   providedIn: 'root'

@@ -10,19 +10,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { RememberWordComponent } from './remember-word/remember-word.component';
-import { TestPlaceComponent } from './test-place/test-place.component'
 import { routing } from './app.routing';
-import { ToDoListComponent } from './todo-list/todo-list.component';
+import { ToDoListComponent } from './todo/todo-list/todo-list.component';
 import { RememberWordsServiceService } from './remember-word/remember-words-service.service';
-import { ToDoRecordComponent } from './todo-record/todo-record.component';
-import { ToDoResultComponent } from './todo-result/todo-result.component';
+import { ToDoRecordComponent } from './todo/todo-record/todo-record.component';
+import { ToDoResultComponent } from './todo/todo-result/todo-result.component';
 import { MilestoneBarComponent } from './milestone-bar/milestone-bar.component';
-import { ToDoCommentComponent } from './todo-comment/todo-comment.component';
-import { TodoDetailComponent } from './todo-detail/todo-detail.component';
-import { TodoManageComponent } from './todo-manage/todo-manage.component';
-import { TodoCreateComponent } from './todo-create/todo-create.component';
-import { TodoEventComponent } from './todo-event/todo-event.component';
-import { TodoEventTimeComponent } from './todo-event-time/todo-event-time.component';
+import { ToDoCommentComponent } from './todo/todo-comment/todo-comment.component';
+import { TodoDetailComponent } from './todo/todo-detail/todo-detail.component';
+import { TodoManageComponent } from './todo/todo-manage/todo-manage.component';
+import { TodoCreateComponent } from './todo/todo-create/todo-create.component';
+import { TodoEventComponent } from './todo/todo-event/todo-event.component';
+import { TodoEventTimeComponent } from './todo/todo-event-time/todo-event-time.component';
 import { KngCreatorComponent } from './kng-creator/kng-creator.component';
 import { TreeSelecterComponent } from './tree-selecter/tree-selecter.component';
 import { TimePipe } from './pipe/time.pipe';
@@ -34,7 +33,6 @@ import { TimePipe } from './pipe/time.pipe';
     RightComponent,
     TopComponent,
     RememberWordComponent,
-    TestPlaceComponent,
     ToDoListComponent,
     ToDoRecordComponent,
     ToDoResultComponent,

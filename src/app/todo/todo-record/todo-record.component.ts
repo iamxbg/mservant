@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import {  Emergency, Importance, TaskStatus, TaskType, ToDoDictUtil } from '../todo-list/ToDoDictUtil';
 import { ToDo } from '../todo-list/ToDo';
-import { ToDoService } from '../todo.service';
+import { ToDoService } from '../../todo.service';
 
 @Component({
   selector: '[app-todo-record]',
@@ -83,7 +83,7 @@ export class ToDoRecordComponent implements OnInit {
       || td.status === TaskStatus.paused
     );
 
-    if(actived.length<2){
+    if(actived.length<3){
       actived.filter(td=>td.status=== TaskStatus.processing)
       .forEach(td=>{
 
@@ -97,7 +97,7 @@ export class ToDoRecordComponent implements OnInit {
         next:()=>{ this.toDo.status=TaskStatus.processing}
       })
     }else{
-      alert("同时开展不应超出2项任务!")
+      alert("同时开展不应超出3项任务!")
     }
   }
 
