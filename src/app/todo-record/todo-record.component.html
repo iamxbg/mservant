@@ -24,7 +24,7 @@
     <span>{{toDo.createTime | date: 'yyyy-MM-dd &nbsp;&nbsp;HH:mm'}}</span>
 </td>
 <td class="consumed_time">
-    <span>{{toDo.actualConsumeSecs}}</span>
+    <span>{{toDo.actualConsumeSecs | time }}</span>
 </td>
 <!-- list操作-->
 <td *ngIf="recordMode == 'edit' " class="operations">

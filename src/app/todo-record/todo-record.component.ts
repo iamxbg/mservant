@@ -96,6 +96,8 @@ export class ToDoRecordComponent implements OnInit {
       .subscribe({
         next:()=>{ this.toDo.status=TaskStatus.processing}
       })
+    }else{
+      alert("同时开展不应超出2项任务!")
     }
   }
 
