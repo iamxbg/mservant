@@ -1,0 +1,43 @@
+<div id="bottom"></div>
+<div id="top">
+
+    <div id="container">
+        <div id="title">
+            <span >创建新的记忆</span>
+            <button (click)='cancel()'>取消</button>
+        </div>
+        <div id="left">
+            <ul>
+                <li>
+                    <span>设置分类标签</span>
+                </li>
+                <li >
+                    <span style="float: left;">词类</span>
+                    <ul id="word_type">
+                       <li *ngFor="let t of word_type" style="float: left; width: 130px;">
+                           <div style="background-color: lawngreen; height: 30px; float: left;">{{t}}</div>
+                       </li>
+                    </ul>
+                </li>
+                <li>
+                    <span>近义词</span>
+                </li>
+                <li>
+                    <span>反义词</span>
+                </li>
+                <li>
+                    <span>例句</span>
+                </li>
+            </ul>
+
+        </div>
+        <div id="right">
+            <ul>
+                <li>
+                    <button id="save" (click)='save()'>保存</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

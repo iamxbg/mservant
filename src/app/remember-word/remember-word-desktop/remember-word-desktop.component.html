@@ -1,0 +1,29 @@
+<div id="container">
+
+    <!-- 分析数据的面板 -->
+    <div id="left">
+    
+    </div>
+    <!-- 操作的面板 -->
+    <div id="right">
+        
+        <ul id="buttons">
+            <li>
+                <div class="round_button" (click)="new()">
+                    <span>新建</span>
+                </div>
+            </li>
+            <li >
+                <div class="round_button" (click)='remember()'>
+                    <span>记忆</span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<!-- 创建新的记忆 -->
+    
+<app-remember-create *ngIf="mode=='create'" (onCancel)="changeModeTo('desktop')"></app-remember-create>

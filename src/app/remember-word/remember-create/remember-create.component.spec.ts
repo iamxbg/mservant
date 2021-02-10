@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RememberWordComponent } from './remember-word.component';
+import { RememberCreateComponent } from './remember-create.component';
 
-describe('RememberWordComponent', () => {
-  let component: RememberWordComponent;
-  let fixture: ComponentFixture<RememberWordComponent>;
+describe('RememberCreateComponent', () => {
+  let component: RememberCreateComponent;
+  let fixture: ComponentFixture<RememberCreateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RememberWordComponent ]
+      declarations: [ RememberCreateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RememberWordComponent);
+    fixture = TestBed.createComponent(RememberCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

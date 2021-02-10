@@ -9,10 +9,10 @@ import { TopComponent } from './top/top.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
-import { RememberWordComponent } from './remember-word/remember-word.component';
+import { RememberWordDesktopComponent } from './remember-word/remember-word-desktop/remember-word-desktop.component';
 import { routing } from './app.routing';
 import { ToDoListComponent } from './todo/todo-list/todo-list.component';
-import { RememberWordsServiceService } from './remember-word/remember-words-service.service';
+import { RememberWordsServiceService } from './remember-word/remember-word-desktop/remember-words-service.service';
 import { ToDoRecordComponent } from './todo/todo-record/todo-record.component';
 import { ToDoResultComponent } from './todo/todo-result/todo-result.component';
 import { MilestoneBarComponent } from './milestone-bar/milestone-bar.component';
@@ -25,6 +25,7 @@ import { TodoEventTimeComponent } from './todo/todo-event-time/todo-event-time.c
 import { KngCreatorComponent } from './kng-creator/kng-creator.component';
 import { TreeSelecterComponent } from './tree-selecter/tree-selecter.component';
 import { TimePipe } from './pipe/time.pipe';
+import { RememberCreateComponent } from './remember-word/remember-create/remember-create.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { TimePipe } from './pipe/time.pipe';
     LeftComponent,
     RightComponent,
     TopComponent,
-    RememberWordComponent,
+    RememberWordDesktopComponent,
     ToDoListComponent,
     ToDoRecordComponent,
     ToDoResultComponent,
@@ -45,7 +46,8 @@ import { TimePipe } from './pipe/time.pipe';
     TodoEventTimeComponent,
 	KngCreatorComponent,
     TreeSelecterComponent,
-    TimePipe
+    TimePipe,
+    RememberCreateComponent
   ],
   imports: [
     BrowserModule,
